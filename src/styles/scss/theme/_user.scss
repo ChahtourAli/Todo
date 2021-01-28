@@ -1,0 +1,189 @@
+/*------------------------------------
+  File for your custom SCSS style
+------------------------------------*/
+/*------------------------------------
+  File for your custom SCSS style
+------------------------------------*/
+.ReactCollapse--collapse {
+  transition: height 100ms;
+}
+.main {
+  background: #ffffff;
+  position: relative;
+  z-index: 0 default;
+}
+
+.main-raised {
+  margin: -60px 30px 0px;
+  border-radius: 3px * 2;
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
+    0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 768px) {
+  .main-raised {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+@media all and (max-width: 1050px) and (min-width: 991px) {
+  .main.main-raised {
+    .container {
+      width: 920px;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .d-none-xs {
+    display: none;
+  }
+}
+
+.z-index-50 {
+  z-index: 50;
+}
+.Toastify__toast--success {
+  background-color: $success !important;
+}
+.Toastify__toast--error {
+  background-color: $danger !important;
+}
+.Toastify__toast--info {
+  background-color: $info !important;
+}
+.Toastify__toast--warning {
+  background-color: $warning !important;
+}
+
+/*------------------------------------
+  Dropzone
+------------------------------------*/
+// Color
+$dropzone-size-color: $secondary !default;
+$dropzone-abbr-color: $primary !default;
+$dropzone-error-color: $danger !default;
+$dropzone-success-color: $success !default;
+// Background Color
+$dropzone-bg-color: $gray-200 !default;
+$dropzone-filepreview-bg-color: $white !default;
+$dropzone-abbr-bg-color: rgba($primary, 0.1) !default;
+// Border Color
+$dropzone-border-color: $gray-300 !default;
+$dropzone-img-border-color: $gray-300 !default;
+// Box Shadow
+$dropzone-filepreview-shadow: $box-shadow-soft !default;
+$btn-width-md: ($font-size-base * 4) !default;
+// Width & Heights
+$dropzone-img-max-width: $btn-width-md !default;
+$dropzone-abbr-width: $btn-width-md !default;
+$dropzone-abbr-height: $dropzone-abbr-width !default;
+$font-weight-semi-bold: 600 !default;
+// Text
+$dropzone-title-font-size: $font-size-xs !default;
+$dropzone-title-font-weight: $font-weight-semi-bold !default;
+$dropzone-size-font-size: 80% !default;
+$dropzone-abbr-font-size: $btn-icon-font-size !default;
+$dropzone-abbr-font-weight: $font-weight-semi-bold !default;
+$dropzone-abbr-line-height: 4 !default;
+// Borders
+$dropzone-border-width: 2px !default;
+$dropzone-border-style: dashed !default;
+$dropzone-border-radius: $border-radius !default;
+$dropzone-filepreview-border-radius: $border-radius !default;
+$dropzone-img-border-width: 1px !default;
+$dropzone-img-border-style: solid !default;
+$dropzone-img-border-radius: $border-radius !default;
+$dropzone-abbr-border-radius: $border-radius !default;
+// Paddings
+$dropzone-padding: 3rem !default;
+$dropzone-filepreview-padding: 1rem !default;
+$dropzone-img-padding: 0.25rem !default;
+.u-dropzone {
+  width: 100%;
+  background-color: $dropzone-bg-color;
+  border: $dropzone-border-width $dropzone-border-style $dropzone-border-color;
+  border-radius: $dropzone-border-radius;
+  cursor: pointer;
+  padding: $dropzone-padding;
+  display: flex;
+  flex-wrap: wrap;
+  .dz-message {
+    width: 100%;
+    text-align: center;
+  }
+  .dz-details {
+    margin-bottom: 1rem;
+  }
+  .dz-file-preview {
+    background-color: $dropzone-filepreview-bg-color;
+    @include border-radius($dropzone-filepreview-border-radius);
+    padding: $dropzone-filepreview-padding;
+    box-shadow: $dropzone-filepreview-shadow;
+  }
+  .dz-file-wrapper {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .dz-filename {
+    margin-bottom: 0.25rem;
+  }
+  .dz-img {
+    max-width: $dropzone-img-max-width;
+    border: $dropzone-img-border-width $dropzone-img-border-style
+      $dropzone-img-border-color;
+    @include border-radius($dropzone-img-border-radius);
+    padding: $dropzone-img-padding;
+    margin-right: 0.75rem;
+  }
+  .dz-close-icon,
+  .dz-size {
+    color: $dropzone-size-color;
+  }
+  .dz-title {
+    font-size: $dropzone-title-font-size;
+    font-weight: $dropzone-title-font-weight;
+  }
+  .dz-size {
+    font-size: $dropzone-size-font-size;
+  }
+  .dz-file-abbr {
+    display: inline-block;
+    width: $dropzone-abbr-width;
+    height: $dropzone-abbr-height;
+    line-height: $dropzone-abbr-line-height;
+    font-weight: $dropzone-abbr-font-weight;
+    font-size: $dropzone-abbr-font-size;
+    color: $dropzone-abbr-color;
+    text-align: center;
+    background-color: $dropzone-abbr-bg-color;
+    border-radius: $dropzone-abbr-border-radius;
+    margin-right: 0.75rem;
+  }
+  [data-dz-thumbnail]:not([src]) {
+    display: none;
+    margin-bottom: 0;
+  }
+  .dz-progress {
+    margin-bottom: 1rem;
+  }
+  &.dz-started .dz-message,
+  .dz-processing .dz-error-mark,
+  .dz-processing .dz-success-mark {
+    display: none;
+  }
+  .dz-processing.dz-error .dz-error-mark,
+  .dz-processing.dz-success .dz-success-mark {
+    display: block;
+  }
+  .dz-processing .dz-error-mark {
+    color: $dropzone-error-color;
+  }
+  .dz-processing .dz-success-mark {
+    color: $dropzone-success-color;
+  }
+}
+
+svg {
+  margin-bottom: 0px !important;
+}
