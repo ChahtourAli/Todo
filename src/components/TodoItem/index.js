@@ -2,32 +2,28 @@ import React, { useState } from "react";
 
 const TodoItem = ({
   onTodoItemDelete,
-  index,
   value,
   isDone,
-  ToggleTodoItemDone,
+  toggleTodoItemDone,
+  editTodoItem,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
 
-  const EditState = (index) => {
-    setIsEditing(true);
-  };
-
   return (
     <li className={isDone ? "text-success" : ""}>
-      {value}
       {!isEditing ? (
         <>
-          <button onClick={() => onTodoItemDelete(index)}>Supprimer</button>
-          <button onClick={ToggleTodoItemDone}>
+          {value}
+          <button onClick={onTodoItemDelete}>Supprimer</button>
+          <button onClick={toggleTodoItemDone}>
             {isDone ? "undo" : "done"}
           </button>
-          <button onClick={() => EditState(index)}>Edit</button>
+          <button onClick={() => setIsEditing(true)}>Edit</button>
         </>
       ) : (
         <>
-          <input value={value} />
-          <button>save</button>
+          <input onChange={(e) => editTodoItem(e.target.value)} value={value} />
+          <button onClick={() => setIsEditing(false)}>save</button>
         </>
       )}
     </li>

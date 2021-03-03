@@ -11,10 +11,17 @@ const Home = () => {
   const onTodoItemDelete = (index) => {
     setMessagesList((prev) => prev.filter((message, i) => i != index));
   };
-  const ToggleTodoItemDone = (index) => {
+  const toggleTodoItemDone = (index) => {
     setMessagesList((prev) => {
       const tmp = [...prev];
       tmp[index].isDone = !tmp[index].isDone;
+      return tmp;
+    });
+  };
+  const editTodoItem = (index, val) => {
+    setMessagesList((prev) => {
+      const tmp = [...prev];
+      tmp[index].value = val;
       return tmp;
     });
   };
@@ -28,12 +35,12 @@ const Home = () => {
         {messagesList.map((el, index) => {
           return (
             <TodoItem
-              key={el.value + index}
-              onTodoItemDelete={onTodoItemDelete}
-              index={index}
+              editTodoItem={(val) => editTodoItem(index, val)}
+              key={index}
+              onTodoItemDelete={() => onTodoItemDelete(index)}
               value={el.value}
               isDone={el.isDone}
-              ToggleTodoItemDone={() => ToggleTodoItemDone(index)}
+              toggleTodoItemDone={() => toggleTodoItemDone(index)}
             />
           );
         })}
